@@ -26,7 +26,7 @@
         min-height: 100vh;
         padding: 20px;
         font-family: "Inter", sans-serif;
-        color: #4a4a4a; /* Slate Gray for text */
+        color: #212121; /* Darker, more black text */
       }
       .widget-container {
         width: 100%;
@@ -35,14 +35,10 @@
         border-radius: 20px;
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
         overflow: hidden;
-        border: 1px solid rgba(74, 74, 74, 0.1);
+        border: 1px solid rgba(33, 33, 33, 0.1);
       }
       .widget-header {
-        background: linear-gradient(
-          135deg,
-          #4a4a4a 0%,
-          #34495e 100%
-        ); /* Slate Gray gradient */
+        background: #4a4a4a; /* Darker gradient */
         color: white;
         padding: 24px 20px;
         text-align: center;
@@ -67,76 +63,14 @@
         font-size: 1.5rem;
         font-weight: 600;
         letter-spacing: 0.3px;
-        margin-bottom: 4px;
-      }
-      .widget-header p {
-        font-size: 0.85rem;
-        opacity: 0.9;
-        font-weight: 300;
-        letter-spacing: 0.5px;
       }
       .widget-content {
         padding: 24px 20px;
       }
-      .stats-overview {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 24px;
-        gap: 16px;
-      }
-      .stat-card {
-        flex: 1;
-        background: white;
-        padding: 16px;
-        border-radius: 16px;
-        text-align: center;
-        border: 1px solid rgba(74, 74, 74, 0.08);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      .stat-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #a3b18a 0%, #f0e6d2 100%);
-      }
-      .stat-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-      }
-      .stat-number {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #4a4a4a;
-        margin-bottom: 4px;
-      }
-      .stat-label {
-        font-size: 0.8rem;
-        color: #4a4a4a;
-        opacity: 0.7;
-      }
-      .section-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 16px;
-        color: #4a4a4a;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .section-title i {
-        color: #a3b18a;
-        font-size: 0.9rem;
-      }
       .no-exams {
         text-align: center;
         padding: 40px 20px;
-        color: #4a4a4a;
+        color: #212121;
         opacity: 0.7;
       }
       .no-exams i {
@@ -157,7 +91,7 @@
         background: white;
         border-radius: 16px;
         padding: 16px;
-        border: 1px solid rgba(74, 74, 74, 0.08);
+        border: 1px solid rgba(33, 33, 33, 0.08);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
@@ -189,7 +123,7 @@
         opacity: 1;
       }
       .exam-countdown-item.very-urgent::before {
-        background: #4a4a4a;
+        background: #212121;
         opacity: 1;
       }
       .exam-countdown-item.overdue::before {
@@ -210,7 +144,7 @@
       }
       .exam-name {
         font-weight: 600;
-        color: #4a4a4a;
+        color: #212121;
         font-size: 1rem;
         display: flex;
         align-items: center;
@@ -223,7 +157,7 @@
       }
       .exam-date {
         font-size: 0.85rem;
-        color: #4a4a4a;
+        color: #212121;
         opacity: 0.8;
         display: flex;
         align-items: center;
@@ -256,12 +190,12 @@
         color: white;
       }
       .countdown-unit.very-urgent {
-        background: #4a4a4a;
+        background: #212121;
         color: white;
       }
       .countdown-unit.overdue {
         background: #e8c9c0;
-        color: #4a4a4a;
+        color: #212121;
       }
       .countdown-number {
         font-size: 1.1rem;
@@ -278,35 +212,21 @@
         font-weight: 500;
         padding: 6px 12px;
         border-radius: 20px;
-        background: #e8f4f8;
-        color: #4a4a4a;
-        white-space: nowrap;
-      }
-      .countdown-status.upcoming {
         background: #f0e6d2;
-        color: #4a4a4a;
+        color: #212121;
+        white-space: nowrap;
       }
       .countdown-status.urgent {
         background: #a3b18a;
         color: white;
       }
       .countdown-status.very-urgent {
-        background: #4a4a4a;
+        background: #212121;
         color: white;
       }
       .countdown-status.overdue {
         background: #e8c9c0;
-        color: #4a4a4a;
-      }
-      .divider {
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(74, 74, 74, 0.1),
-          transparent
-        );
-        margin: 20px 0;
+        color: #212121;
       }
     </style>
   </head>
@@ -314,32 +234,15 @@
     <div class="widget-container">
       <div class="widget-header">
         <h1>Exam Countdown</h1>
-        <p>Live Timers</p>
       </div>
       <div class="widget-content">
-        <div class="stats-overview">
-          <div class="stat-card">
-            <div class="stat-number" id="totalExams">0</div>
-            <div class="stat-label">Total Exams</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" id="upcomingExams">0</div>
-            <div class="stat-label">Upcoming</div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="section">
-          <div class="section-title">
-            <i class="fas fa-clock"></i> Active Countdowns
-          </div>
-          <div id="examCountdownList">
-            <div class="no-exams">
-              <i class="fas fa-graduation-cap"></i>
-              <p>
-                No upcoming exams found.<br />Add exams in the Assignment & Exam
-                Tracker to see countdowns here.
-              </p>
-            </div>
+        <div id="examCountdownList">
+          <div class="no-exams">
+            <i class="fas fa-graduation-cap"></i>
+            <p>
+              No upcoming exams found.<br />Add exams in the Assignment & Exam
+              Tracker to see countdowns here.
+            </p>
           </div>
         </div>
       </div>
@@ -415,14 +318,7 @@
           const assignments = loadAssignments();
           const exams = assignments.filter((a) => a.type === "exam");
           const countdownList = document.getElementById("examCountdownList");
-          // Update summary
-          document.getElementById("totalExams").textContent = exams.length;
-          document.getElementById("upcomingExams").textContent = exams.filter(
-            (e) => {
-              const countdown = calculateCountdown(e.dueDate);
-              return !countdown.isOverdue;
-            }
-          ).length;
+
           if (exams.length === 0) {
             countdownList.innerHTML = `
                         <div class="no-exams">
@@ -465,15 +361,21 @@
                         <div class="countdown-container">
                             <div class="countdown-display">
                                 <div class="countdown-unit ${status}">
-                                    <div class="countdown-number">${countdown.days}</div>
+                                    <div class="countdown-number">${
+                                      countdown.days
+                                    }</div>
                                     <div class="countdown-label">Days</div>
                                 </div>
                                 <div class="countdown-unit ${status}">
-                                    <div class="countdown-number">${countdown.hours}</div>
+                                    <div class="countdown-number">${
+                                      countdown.hours
+                                    }</div>
                                     <div class="countdown-label">Hours</div>
                                 </div>
                                 <div class="countdown-unit ${status}">
-                                    <div class="countdown-number">${countdown.minutes}</div>
+                                    <div class="countdown-number">${
+                                      countdown.minutes
+                                    }</div>
                                     <div class="countdown-label">Mins</div>
                                 </div>
                             </div>
