@@ -19,7 +19,7 @@
         box-sizing: border-box;
       }
       body {
-        background: transparent; /* Cream/Ivory background */
+        background: #fdf6f0; /* Cream/Ivory background */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -30,17 +30,17 @@
       }
       .widget-container {
         width: 100%;
-        max-width: 800px;
+        max-width: 500px;
         background: #fdf6f0; /* Cream/Ivory main background */
-        border-radius: 20px;
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         overflow: hidden;
         border: 1px solid rgba(33, 33, 33, 0.1);
       }
       .widget-header {
         background: #4a4a4a; /* Darker gradient */
         color: white;
-        padding: 24px 20px;
+        padding: 16px 16px;
         text-align: center;
         position: relative;
       }
@@ -50,7 +50,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        height: 3px;
+        height: 2px;
         background: linear-gradient(
           90deg,
           #a3b18a 0%,
@@ -60,37 +60,37 @@
       }
       .widget-header h1 {
         font-family: "Playfair Display", serif;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: 600;
         letter-spacing: 0.3px;
       }
       .widget-content {
-        padding: 24px 20px;
+        padding: 16px 16px;
       }
       .no-exams {
         text-align: center;
-        padding: 40px 20px;
+        padding: 30px 16px;
         color: #212121;
         opacity: 0.7;
       }
       .no-exams i {
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: #a3b18a;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
       }
       .no-exams p {
-        font-size: 0.9rem;
-        line-height: 1.5;
+        font-size: 0.85rem;
+        line-height: 1.4;
       }
       .exam-countdown-list {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
       }
       .exam-countdown-item {
         background: white;
-        border-radius: 16px;
-        padding: 16px;
+        border-radius: 12px;
+        padding: 12px 14px;
         border: 1px solid rgba(33, 33, 33, 0.08);
         transition: all 0.3s ease;
         position: relative;
@@ -104,7 +104,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 4px;
+        width: 3px;
         height: 100%;
         background: #a3b18a;
         opacity: 0;
@@ -114,8 +114,8 @@
         opacity: 1;
       }
       .exam-countdown-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         border-color: rgba(163, 177, 138, 0.3);
       }
       .exam-countdown-item.urgent::before {
@@ -136,53 +136,39 @@
       .exam-countdown-item.overdue {
         background: linear-gradient(135deg, #fdf6f0 0%, #fce8e6 100%);
       }
-      .exam-info {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex: 1;
-      }
       .exam-name {
         font-weight: 600;
         color: #212121;
-        font-size: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        min-width: 180px;
-      }
-      .exam-name i {
-        color: #a3b18a;
-        font-size: 0.9rem;
-      }
-      .exam-date {
-        font-size: 0.85rem;
-        color: #212121;
-        opacity: 0.8;
+        font-size: 0.95rem;
         display: flex;
         align-items: center;
         gap: 6px;
-        min-width: 150px;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
-      .exam-date i {
+      .exam-name i {
         color: #a3b18a;
         font-size: 0.85rem;
+        flex-shrink: 0;
       }
       .countdown-container {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
+        flex-shrink: 0;
       }
       .countdown-display {
         display: flex;
-        gap: 8px;
+        gap: 6px;
       }
       .countdown-unit {
         background: #f0e6d2;
-        border-radius: 10px;
-        padding: 8px 10px;
+        border-radius: 8px;
+        padding: 6px 8px;
         text-align: center;
-        min-width: 60px;
+        min-width: 50px;
         transition: all 0.3s ease;
       }
       .countdown-unit.urgent {
@@ -198,20 +184,20 @@
         color: #212121;
       }
       .countdown-number {
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 700;
         line-height: 1;
       }
       .countdown-label {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         opacity: 0.8;
-        margin-top: 2px;
+        margin-top: 1px;
       }
       .countdown-status {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         font-weight: 500;
-        padding: 6px 12px;
-        border-radius: 20px;
+        padding: 4px 10px;
+        border-radius: 16px;
         background: #f0e6d2;
         color: #212121;
         white-space: nowrap;
@@ -336,27 +322,12 @@
           sortedExams.forEach((exam) => {
             const countdown = calculateCountdown(exam.dueDate);
             const status = getStatus(countdown);
-            const formattedDate = new Date(exam.dueDate).toLocaleDateString(
-              "en-US",
-              {
-                weekday: "short",
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              }
-            );
             const examItem = document.createElement("div");
             examItem.className = `exam-countdown-item ${status}`;
             examItem.innerHTML = `
-                        <div class="exam-info">
-                            <div class="exam-name">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>${exam.name}</span>
-                            </div>
-                            <div class="exam-date">
-                                <i class="fas fa-calendar"></i>
-                                <span>${formattedDate}</span>
-                            </div>
+                        <div class="exam-name">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>${exam.name}</span>
                         </div>
                         <div class="countdown-container">
                             <div class="countdown-display">
